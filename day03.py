@@ -7,13 +7,14 @@ with open("day03.txt") as day3:
     for line in day3:
         newline = []
         for ch in line.strip():
+            # Read each character as booleans
             newline.append(ch == "#")
         forest.append(list(newline))
 
 height = len(forest)
 width = len(forest[0])
-ntrees_prod = 1
-for speedx, speedy in ((1,1), (3,1), (5,1), (7,1), (1,2)):
+ntrees_prod = 1  # running product of the encountered trees per direction combo
+for speedx, speedy in ((1, 1), (3, 1), (5, 1), (7, 1), (1, 2)):
     currx, curry = 0, 0  # whoe doesn't love curry?
     ntrees = 0
     while curry < height - 1:
