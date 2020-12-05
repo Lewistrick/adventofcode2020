@@ -1,5 +1,7 @@
+import time
 from passport import Passport
 
+t0 = time.time()
 part1 = 0 # number of valid passports for part 1
 part2 = 0 # number of valid passports for part 2
 with open("day04.txt") as day04:
@@ -24,6 +26,8 @@ with open("day04.txt") as day04:
         passport = Passport.from_lines(currlines)
         part1 += passport.is_valid_day04_part1()
         part2 += passport.is_valid_day04_part2()
+
+print(f"Done in {(time.time() - t0) * 1000} msec.")
 
 print(f"Part 1: {part1}")
 print(f"Part 2: {part2}")
